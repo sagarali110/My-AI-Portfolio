@@ -7,7 +7,7 @@ st.title("🧠 Handwritten Digit Recognizer")
 @st.cache_resource
 def load_model():
     import tensorflow as tf
-    return tf.keras.models.load_model("model/hcr_model.keras")
+    return tf.keras.models.load_model("hcr_model.keras")
 
 model = load_model()
 
