@@ -1,11 +1,15 @@
 import streamlit as st
 import numpy as np
-import tensorflow as tf
 from PIL import Image
 
-model = tf.keras.models.load_model("model/hcr_model.keras")
-
 st.title("🧠 Handwritten Digit Recognizer")
+
+@st.cache_resource
+def load_model():
+    import tensorflow as tf
+    return tf.keras.models.load_model("model/hcr_model.keras")
+
+model = load_model()
 
 file = st.file_uploader("Upload Image", type=["png", "jpg", "jpeg"])
 
